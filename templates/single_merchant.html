@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Acquirer = ID - {{acq.id}}, Name - {{acq.name}}</p>
+<p>Merchant = ID - {{merchant.id}}, Name - {{merchant.name}}</p>
+
+<div class="container">
+<div class="form-row">
+    <div class="col">
+        <h6 class="text-center">Requirements Analysis</h6>
+        <br>
+    </div>
+</div>
+<form>
+    <div class="form-row">
+        <div class="col">
+            <span class="badge badge-primary">Primary</span> {{result_form.tc.label}}
+            {{result_form.tc(class="form-control", id="privacy")}}
+            <span class="badge badge-primary">Primary</span> {{result_form.privacy.label}}
+            {{result_form.privacy(class="form-control", id="privacy")}}
+            <span class="badge badge-primary">Primary</span> {{result_form.delivery.label}}
+            {{result_form.delivery(class="form-control", id="privacy")}}
+            <span class="badge badge-primary">Primary</span> {{result_form.refund.label}}
+            {{result_form.refund(class="form-control", id="privacy")}}
+        </div>
+        <div class="col">
+            <span class="badge badge-warning">Primary</span> {{result_form.contacts.label}}
+            {{result_form.contacts(class="form-control", id="privacy")}}
+            <span class="badge badge-warning">Primary</span> {{result_form.logos.label}}
+            {{result_form.logos(class="form-control", id="privacy")}}
+            <div class="form-row">
+                <div class="col">
+                    <span class="badge badge-warning">Primary</span> {{result_form.phone.label}}
+                    {{result_form.phone(class="form-control", id="privacy")}}
+                </div>
+                <div class="col">
+                    <span class="badge badge-warning">Primary</span> {{result_form.email.label}}
+                    {{result_form.email(class="form-control", id="tc", value="http://website.com...................qqqqqqqqqq")}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {{result_form.save(class='btn btn-primary')}}
+</form>
+</div>
+</div>
+<div class="container">
+    <div class="col">
+        <h6 class="text-center">Threat Analysis</h6>
+        <div class="form-row">
+
+            <div class="col">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item flex-fill">Score: 90</li>
+                    <li class="list-group-item flex-fill">Is China?: Yes</li>
+                    <li class="list-group-item flex-fill">Blacklisted: No</li>
+                    <li class="list-group-item flex-fill">Domain Age: 1000</li>
+                </ul>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <table class="table table-stripped table-sm">
+                    <thead>
+                    <tr>
+                        <th scope="col">Colums</th>
+                        <th scope="col">Column2</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>http://amazon.com</td>
+                        <td>75</td>
+                    </tr>
+                    <tr>
+                        <td>www.website.com/somedomain</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>www.anotherwebsite.comttttttttttttttttttttt0000000000000000000000000000000000000000000000000000000000tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</td>
+                        <td>98</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+                    {% if dummy_data %}
+            <div class="col">
+
+                <table class="table table-stripped table-sm">
+                    <thead>
+                    <tr>
+                        <th scope="col">Some URLs</th>
+                    </tr>
+                    </thead>
+                    {% for data in dummy_data %}
+                    <tbody>
+                    <tr>
+                        <td>{{data}}</td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

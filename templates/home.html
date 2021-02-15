@@ -1,0 +1,18 @@
+<div class="jumbotron">
+    <div class="text-center">
+        <p>Enter Website to Scan</p>
+    </div>
+
+    <form method="POST", class="row">
+        {{ website_form.hidden_tag() }}
+        <div class="col-md-6">{{website_form.website(class="form-control")}}</div>
+        <div class="col-md-4">{{website_form.mid(class="form-control")}}</div>
+        {{website_form.submit(class='btn btn-primary')}}
+    </form>
+    {% if website_form.validate_on_submit() %}
+
+    <p>Starting to crawl</p>
+
+    {% endif %}
+
+</div>

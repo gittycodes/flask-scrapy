@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="text-center">
+        {% if current_user.is_authenticated %} <!-- This if statement ends at line... don't forget about endif -->
+        <p>Enter Website to Scan</p>
+    </div>
+
+    <form method="POST">
+        {{ website_form.hidden_tag() }}
+        {{website_form.website(class="form-control")}}
+        {{website_form.submit(class='btn btn-primary')}}
+    </form>
+    {% if website_form.validate_on_submit() %}
+
+            <form>
+                <div class="form-row">
+                    <div class="col">
+                        <h6 class="text-center">Requirements Analysis</h6>
+                        {{result_form.tc.label}} <span class="badge badge-primary">Primary</span>
+                        {{result_form.tc(class="form-control", id="privacy")}}
+                        {{result_form.privacy.label}} <span class="badge badge-primary">Primary</span>
+                        {{result_form.privacy(class="form-control", id="privacy")}}
+                        {{result_form.delivery.label}} <span class="badge badge-primary">Primary</span>
+                        {{result_form.delivery(class="form-control", id="privacy")}}
+                        {{result_form.refund.label}} <span class="badge badge-primary">Primary</span>
+                        {{result_form.refund(class="form-control", id="privacy")}}
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    {{result_form.phone.label}} <span class="badge badge-warning">Primary</span>
+                                    {{result_form.phone(class="form-control", id="privacy")}}
+                                </div>
+                                <div class="col">
+                                    {{result_form.email.label}} <span class="badge badge-warning">Primary</span>
+                                    {{result_form.email(class="form-control", id="tc", value="http://website.com...................qqqqqqqqqq")}}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <h6 class="text-center">Threat Analysis</h6>
+                        {{result_form.privacy.label}}
+                        {{result_form.privacy(class="form-control", id="privacy")}}
+                        {{result_form.privacy.label}}
+                        {{result_form.privacy(class="form-control", id="privacy")}}
+                        {{result_form.privacy.label}}
+                        {{result_form.privacy(class="form-control", id="privacy")}}
+                        {{result_form.privacy.label}}
+                        {{result_form.privacy(class="form-control", id="privacy")}}
+                        {{result_form.privacy.label}}
+                        {{result_form.privacy(class="form-control", id="privacy")}}
+                        {{result_form.privacy.label}}
+                        {{result_form.privacy(class="form-control", id="privacy")}}
+                    </div>
+                </div>
+
+            </form>
+
+            {% endif %}
+
+
+            {% else %}
+            <p>Please log in and register</p>
+            {% endif %}
+        </div>
+
+
+        {% endblock %}
